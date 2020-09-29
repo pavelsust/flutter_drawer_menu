@@ -40,7 +40,7 @@ class TutorialScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               child: RaisedButton(
-                child: Text("Bottom Menu"),
+                child: Text("Bottom With Drawer Menu"),
                 onPressed: (){
                   Navigator.push(
                     context,
