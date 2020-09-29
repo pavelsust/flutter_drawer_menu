@@ -64,10 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text('Places'),
             icon: Icon(Icons.location_on),
           ),
-          BottomNavigationBarItem(
-            title: Text('News'),
-            icon: Icon(Icons.library_books),
-          ),
         ],
       ),
       body: _getDrawerItemWidget(_currentIndex),

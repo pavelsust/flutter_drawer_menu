@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   int _selectedDrawerIndex = 0;
 
+  String currentProfilePic = "https://avatars3.githubusercontent.com/u/16825392?s=460&v=4";
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
@@ -47,8 +48,6 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-
     List<Widget> drawerOptions = [];
     for (var i = 0; i < widget.drawerItems.length; i++) {
       var d = widget.drawerItems[i];
@@ -67,8 +66,8 @@ class HomePageState extends State<HomePage> {
             _selectedDrawerIndex = 0;
           });
           _getDrawerItemWidget(_selectedDrawerIndex);
-        }else{
-          Navigator.pop(context , true);
+        } else {
+          Navigator.pop(context, true);
         }
         return;
       },
@@ -80,8 +79,18 @@ class HomePageState extends State<HomePage> {
         ),
         drawer: new Drawer(
           child: new Column(
+
             children: <Widget>[
-              createDrawerHeader(),
+              UserAccountsDrawerHeader(
+                accountEmail: new Text("bramvbilsen@gmail.com"),
+                accountName: new Text("Bramvbilsen"),
+                currentAccountPicture: new GestureDetector(
+                  child: new CircleAvatar(
+                    backgroundImage: new NetworkImage(currentProfilePic),
+                  ),
+                  onTap: () => print("This is your current account."),
+                ),
+              ),
               Column(children: drawerOptions)
             ],
           ),
@@ -89,22 +98,5 @@ class HomePageState extends State<HomePage> {
         body: _getDrawerItemWidget(_selectedDrawerIndex),
       ),
     );
-  }
-
-  Widget createDrawerHeader() {
-    return DrawerHeader(
-        margin: EdgeInsets.zero,
-        padding: EdgeInsets.zero,
-        decoration: BoxDecoration(),
-        child: Stack(children: <Widget>[
-          Positioned(
-              bottom: 12.0,
-              left: 16.0,
-              child: Text("Welcome to Flutter",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w500))),
-        ]));
   }
 }
