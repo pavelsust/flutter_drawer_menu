@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer_menu/test/lib/TutorialScreen.dart';
-import 'package:flutter_drawer_menu/test/lib/bottombar/MyHomePage.dart';
-import 'package:flutter_drawer_menu/test/lib/pages/drawer_menu.dart';
 
 void main() => runApp(new MyApp());
 
@@ -14,6 +12,7 @@ class MyApp extends StatelessWidget {
         theme: new ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: TutorialScreen());
+        home: TutorialScreen()
+    );
   }
 }

@@ -58,21 +58,34 @@ class HomePageState extends State<HomePage> {
       ));
     }
 
-    return new Scaffold(
-      appBar: new AppBar(
-        // here we display the title corresponding to the fragment
-        // you can instead choose to have a static title
-        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-      ),
-      drawer: new Drawer(
-        child: new Column(
-          children: <Widget>[
-            createDrawerHeader(),
-            Column(children: drawerOptions)
-          ],
+    return WillPopScope(
+      onWillPop: () {
+        if (_selectedDrawerIndex != 0) {
+          setState(() {
+            _selectedDrawerIndex = 0;
+          });
+          _getDrawerItemWidget(_selectedDrawerIndex);
+        }else{
+          Navigator.pop(context , true);
+        }
+        return;
+      },
+      child: Scaffold(
+        appBar: new AppBar(
+          // here we display the title corresponding to the fragment
+          // you can instead choose to have a static title
+          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
         ),
+        drawer: new Drawer(
+          child: new Column(
+            children: <Widget>[
+              createDrawerHeader(),
+              Column(children: drawerOptions)
+            ],
+          ),
+        ),
+        body: _getDrawerItemWidget(_selectedDrawerIndex),
       ),
-      body: _getDrawerItemWidget(_selectedDrawerIndex),
     );
   }
 
