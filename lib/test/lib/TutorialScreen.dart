@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer_menu/test/lib/bottombar/MyHomePage.dart';
+import 'package:flutter_drawer_menu/test/lib/drawewithbottom/DrawerWithBottom.dart';
 import 'package:flutter_drawer_menu/test/lib/pages/drawer_menu.dart';
 
 class TutorialScreen extends StatelessWidget {
@@ -35,7 +36,19 @@ class TutorialScreen extends StatelessWidget {
                   );
                 },
               ),
-            )
+            ),
+            Container(
+              width: double.infinity,
+              child: RaisedButton(
+                child: Text("Bottom Menu"),
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DrawerWithBottom()),
+                  );
+                },
+              ),
+            ),
           ],
         ));
   }
