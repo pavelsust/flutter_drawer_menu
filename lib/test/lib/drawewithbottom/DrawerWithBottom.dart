@@ -6,9 +6,9 @@ import 'package:flutter_drawer_menu/test/lib/pages/drawer_menu.dart';
 
 class DrawerWithBottom extends StatefulWidget {
   var drawerItems = [
-    new DrawerItem("Fragment 1", Icons.rss_feed),
-    new DrawerItem("Fragment 2", Icons.local_pizza),
-    new DrawerItem("Fragment 3", Icons.info)
+    new DrawerItem("Favorites", Icons.rss_feed),
+    new DrawerItem("Music", Icons.local_pizza),
+    new DrawerItem("Places", Icons.info)
   ];
 
   @override
@@ -96,7 +96,7 @@ class _DrawerWithBottom extends State<DrawerWithBottom> {
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           backgroundColor: colorScheme.surface,
-          selectedItemColor: colorScheme.onSurface,
+          selectedItemColor: Colors.red,
           unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
           selectedLabelStyle: textTheme.caption,
           unselectedLabelStyle: textTheme.caption,
@@ -142,33 +142,3 @@ class _DrawerWithBottom extends State<DrawerWithBottom> {
   }
 }
 
-const ColorScheme _shrineColorScheme = ColorScheme(
-  primary: shrinePink100,
-  primaryVariant: shrineBrown900,
-  secondary: shrinePink50,
-  secondaryVariant: shrineBrown900,
-  surface: shrineSurfaceWhite,
-  background: shrineBackgroundWhite,
-  error: shrineErrorRed,
-  onPrimary: shrineBrown900,
-  onSecondary: shrineBrown900,
-  onSurface: shrineBrown900,
-  onBackground: shrineBrown900,
-  onError: shrineSurfaceWhite,
-  brightness: Brightness.light,
-);
-
-const Color shrinePink50 = Color(0xFFFEEAE6);
-const Color shrinePink100 = Color(0xFFFEDBD0);
-const Color shrinePink300 = Color(0xFFFBB8AC);
-const Color shrinePink400 = Color(0xFFEAA4A4);
-
-const Color shrineBrown900 = Color(0xFF442B2D);
-const Color shrineBrown600 = Color(0xFF7D4F52);
-
-const Color shrineErrorRed = Color(0xFFC5032B);
-
-const Color shrineSurfaceWhite = Color(0xFFFFFBFA);
-const Color shrineBackgroundWhite = Colors.white;
-
-const defaultLetterSpacing = 0.03;

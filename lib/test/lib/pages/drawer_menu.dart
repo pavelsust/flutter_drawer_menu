@@ -6,15 +6,14 @@ import 'package:flutter_drawer_menu/test/lib/fragments/third_fragment.dart';
 class DrawerItem {
   String title;
   IconData icon;
-
   DrawerItem(this.title, this.icon);
 }
 
 class HomePage extends StatefulWidget {
   final drawerItems = [
-    new DrawerItem("Fragment 1", Icons.rss_feed),
-    new DrawerItem("Fragment 2", Icons.local_pizza),
-    new DrawerItem("Fragment 3", Icons.info)
+    new DrawerItem("Favorites ", Icons.rss_feed),
+    new DrawerItem("Music", Icons.local_pizza),
+    new DrawerItem("Places", Icons.info)
   ];
 
   @override
@@ -26,7 +25,9 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   int _selectedDrawerIndex = 0;
 
-  String currentProfilePic = "https://avatars3.githubusercontent.com/u/16825392?s=460&v=4";
+  String currentProfilePic =
+      "https://avatars3.githubusercontent.com/u/16825392?s=460&v=4";
+
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
@@ -73,13 +74,10 @@ class HomePageState extends State<HomePage> {
       },
       child: Scaffold(
         appBar: new AppBar(
-          // here we display the title corresponding to the fragment
-          // you can instead choose to have a static title
           title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
         ),
         drawer: new Drawer(
           child: new Column(
-
             children: <Widget>[
               UserAccountsDrawerHeader(
                 accountEmail: new Text("bramvbilsen@gmail.com"),
