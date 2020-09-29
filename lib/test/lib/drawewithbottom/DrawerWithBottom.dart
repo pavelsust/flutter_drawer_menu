@@ -20,6 +20,8 @@ class DrawerWithBottom extends StatefulWidget {
 class _DrawerWithBottom extends State<DrawerWithBottom> {
   int _currentIndex = 0;
 
+  String currentProfilePic = "https://avatars3.githubusercontent.com/u/16825392?s=460&v=4";
+
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
@@ -75,7 +77,16 @@ class _DrawerWithBottom extends State<DrawerWithBottom> {
         drawer: new Drawer(
           child: new Column(
             children: <Widget>[
-              createDrawerHeader(),
+              UserAccountsDrawerHeader(
+                accountEmail: new Text("bramvbilsen@gmail.com"),
+                accountName: new Text("Bramvbilsen"),
+                currentAccountPicture: new GestureDetector(
+                  child: new CircleAvatar(
+                    backgroundImage: new NetworkImage(currentProfilePic),
+                  ),
+                  onTap: () => print("This is your current account."),
+                ),
+              ),
               Column(children: drawerOptions)
             ],
           ),
@@ -106,10 +117,6 @@ class _DrawerWithBottom extends State<DrawerWithBottom> {
             BottomNavigationBarItem(
               title: Text('Places'),
               icon: Icon(Icons.location_on),
-            ),
-            BottomNavigationBarItem(
-              title: Text('News'),
-              icon: Icon(Icons.library_books),
             ),
           ],
         ),

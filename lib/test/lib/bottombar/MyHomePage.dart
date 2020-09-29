@@ -30,14 +30,17 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  List<String> titleList = ["Favorite", "Music", "Places"];
+
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-
-
-
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(titleList[_currentIndex]),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
